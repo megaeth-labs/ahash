@@ -103,6 +103,4 @@ hashbrown = "0.14.3"
 smallvec = "1.13.1"
 
 [package.metadata.docs.rs]
-rustc-args = ["-C", "target-feature=+aes"]
-rustdoc-args = ["-C", "target-feature=+aes"]
 features = ["std"]

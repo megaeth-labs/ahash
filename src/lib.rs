@@ -104,19 +104,7 @@ Note the import of [HashMapExt]. This is needed for the constructor.
 mod convert;
 
 mod fallback_hash;
-
-cfg_if::cfg_if! {
-    if #[cfg(any(
-            all(any(target_arch = "x86", target_arch = "x86_64"), target_feature = "aes", not(miri)),
-            all(feature = "nightly-arm-aes", target_arch = "aarch64", target_feature = "aes", not(miri)),
-            all(feature = "nightly-arm-aes", target_arch = "arm", target_feature = "aes", not(miri)),
-        ))] {
-        mod aes_hash;
-        pub use crate::aes_hash::AHasher;
-    } else {
-        pub use crate::fallback_hash::AHasher;
-    }
-}
+pub use crate::fallback_hash::AHasher;
 
 cfg_if::cfg_if! {
     if #[cfg(feature = "std")] {
