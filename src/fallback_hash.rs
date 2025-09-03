@@ -174,7 +174,7 @@ impl Hasher for AHasher {
         //Needs to be an add rather than an xor because otherwise it could be canceled with carefully formed input.
         self.buffer = self.buffer.wrapping_add(length).wrapping_mul(MULTIPLE);
         //A 'binary search' on sizes reduces the number of comparisons.
-        if data.len() > 8 {
+        /*if data.len() > 8 {
             if data.len() > 16 {
                 let tail = data.read_last_u128();
                 self.large_update(tail);
@@ -189,7 +189,7 @@ impl Hasher for AHasher {
         } else {
             let value = read_small(data);
             self.large_update(value.convert());
-        }
+        }*/
     }
 
     #[inline]
