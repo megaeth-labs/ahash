@@ -206,7 +206,7 @@ cfg_if::cfg_if! {
 /// |`with_seed`    | Fixed per process   |`u64` + static random number|
 /// |`with_seeds`   | Fixed               |`u64` x 4|
 ///
-#[derive(Clone)]
+#[derive(Debug, Clone)]
 pub struct RandomState {
     pub(crate) k0: u64,
     pub(crate) k1: u64,
@@ -214,11 +214,11 @@ pub struct RandomState {
     pub(crate) k3: u64,
 }
 
-impl fmt::Debug for RandomState {
+/*impl fmt::Debug for RandomState {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         f.pad("RandomState { .. }")
     }
-}
+}*/
 
 impl RandomState {
     /// Create a new `RandomState` `BuildHasher` using random keys.
