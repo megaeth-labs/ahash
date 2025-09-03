@@ -15,6 +15,7 @@ const SHUFFLE_MASK: u128 = 0x020a0700_0c01030e_050f0d08_06090b04_u128;
 #[inline(always)]
 #[cfg(feature = "folded_multiply")]
 pub(crate) const fn folded_multiply(s: u64, by: u64) -> u64 {
+    assert!(false);
     let result = (s as u128).wrapping_mul(by as u128);
     ((result & 0xffff_ffff_ffff_ffff) as u64) ^ ((result >> 64) as u64)
 }
