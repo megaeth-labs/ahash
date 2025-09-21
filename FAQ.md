@@ -24,7 +24,7 @@ More details are available on [the wiki](https://github.com/tkaitchuck/aHash/wik
 
 ## Why not use a cryptographic hash in a hashmap.
 
-Cryptographic hashes are designed to make is nearly impossible to find two items that collide when the attacker has full control
+Cryptographic hashes are designed to make it nearly impossible to find two items that collide when the attacker has full control
 over the input. This has several implications:
 
 * They are very difficult to construct, and have to go to a lot of effort to ensure that collisions are not possible.
@@ -50,11 +50,11 @@ Where the input can be quickly mixed in a way that cannot be reversed without kn
 It is not designed to be. 
 Attempting to use aHash as a secure hash will likely fail to hold up for several reasons:
 
-1. aHash relies on random keys which are assumed to not be observable by an attacker. For a cryptographic hash all inputs can be seen and controlled by the attacker.
+1. aHash relies on random keys which are assumed not to be observable by an attacker. For a cryptographic hash all inputs can be seen and controlled by the attacker.
 2. aHash has not yet gone through peer review, which is a pre-requisite for security critical algorithms.
 3. Because aHash uses reduced rounds of AES as opposed to the standard of 10. Things like the SQUARE attack apply to part of the internal state.
 (These are mitigated by other means to prevent producing collections, but would be a problem in other contexts).
-4. Like any cypher based hash, it will show certain statistical deviations from truly random output when comparing a (VERY) large number of hashes. 
+4. Like any cypher-based hash, it will show certain statistical deviations from truly random output when comparing a (VERY) large number of hashes. 
 (By definition cyphers have fewer collisions than truly random data.)
 
 There are efforts to build a secure hash function that uses AES-NI for acceleration, but aHash is not one of them.
